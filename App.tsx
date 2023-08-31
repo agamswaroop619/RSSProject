@@ -15,6 +15,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  Alert,
 } from 'react-native';
 
 import {
@@ -75,7 +77,11 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-             <Text style={styles.innerText}> Hello World</Text>
+          <Text style={styles.innerText}> Camera Feed initiating...</Text>
+          <Button
+            title="Initiate Camera"
+            onPress={() => Alert.alert('Camera not found')}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -96,12 +102,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignContent: 'center',
     fontSize: 58,
-    height:'100%',
-    width:'100%',
+    height: '100%',
+    width: '100%',
     fontWeight: '400',
-    color : 'white',
-    justifyContent : 'center',
-    backgroundColor:'blue',
+    color: 'white',
+    justifyContent: 'center',
+    backgroundColor: 'blue',
   },
   highlight: {
     fontWeight: '700',
