@@ -17,6 +17,7 @@ import {
   View,
   Button,
   Alert,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -27,35 +28,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -77,11 +50,12 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text style={styles.innerText}> Camera Feed initiating...</Text>
-          <Button
-            title="Initiate Camera"
+          <Text style={styles.innerText}>Camera Feed initiating...</Text>
+          <TouchableOpacity
             onPress={() => Alert.alert('Camera not found')}
-          />
+          >
+            <Text style={styles.innerText}>Initiate Camera</Text>
+            </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
